@@ -1,5 +1,7 @@
 package entities;
 
+import java.util.Scanner;
+
 public class Bill {
 	// Atributos
 	// Conta do bar em inglês = Bill
@@ -8,28 +10,34 @@ public class Bill {
 	public int barbecue;   // barbecue = espetinhos
 	public int softDrink;  // softDrink = refrigerante
 	
+	//Scanner sc = new Scanner(System.in);	
+	
 	// Métodos
 	public double cover() {  // Cover = Cover artitistico
-		couvert = 0.00;
+		
 		if(feeding() > 30) {
-			couvert = 0.00;
-			System.out.println("Isento de Couvert");
+			return 0;
 		}else {
-			couvert = 4.00;
-		}
-		return 
+			return 4.00;
+		}		
 	}
 	
 	public double feeding() {  // Feeding = Consumo
 		return ( (beer * 5.00) + (barbecue * 7.00) + (softDrink * 3.00));
 	}
 	
-	public double ticket() {   // Ticket = Ingresso
-		return 
+	public double ticket(char gender) {   // Ticket = Ingresso
+		this.gender = gender;
+		if(gender == 'M') {
+			return 10.00;
+		}else {
+			return 8.00;
+		}
 	}
 	
 	public double total() {    // Total = Conta total
-		return  
+		return ticket(gender) + feeding() + cover(); 
 	}
 	
 }
+

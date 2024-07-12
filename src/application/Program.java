@@ -3,6 +3,7 @@ package application;
 import java.util.Locale;
 import java.util.Scanner;
 import entities.Bill;
+
 public class Program {
 
 	public static void main(String[] args) {
@@ -16,6 +17,11 @@ public class Program {
 		
 		System.out.print("Sexo: ");
 		bill.gender = sc.next().charAt(0);
+		while(bill.gender != 'F' && bill.gender != 'M' ) {
+			System.out.print("Sexo: ");
+			bill.gender = sc.next().charAt(0);
+		}
+		
 		System.out.print("Quantidade de cervejas: ");
 		bill.beer = sc.nextInt();
 		System.out.print("Quantidade de refrigerantes: ");
@@ -26,8 +32,11 @@ public class Program {
 		System.out.println();
 		System.out.println("RELATÓRIO:");
 		System.out.printf("Consumo = R$ %.2f%n", bill.feeding());
+		System.out.printf("Couvert = R$ %.2f%n", bill.cover());		
+		System.out.printf("Ingresso = R$ %.2f%n", bill.ticket(bill.gender));
 		
-		
+		System.out.println();
+		System.out.printf("Valor a pagar = R$ %.2f%n", bill.total());
 		sc.close();
 
 	}
