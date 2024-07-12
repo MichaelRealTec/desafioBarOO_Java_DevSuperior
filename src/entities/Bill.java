@@ -1,6 +1,5 @@
 package entities;
 
-import java.util.Scanner;
 
 public class Bill {
 	// Atributos
@@ -14,11 +13,10 @@ public class Bill {
 	
 	// Métodos
 	public double cover() {  // Cover = Cover artitistico
-		
-		if(feeding() > 30) {
-			return 0;
-		}else {
+		if(feeding() < 30) {
 			return 4.00;
+		} else {
+			return 0.00;
 		}		
 	}
 	

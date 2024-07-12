@@ -32,13 +32,16 @@ public class Program {
 		System.out.println();
 		System.out.println("RELATÓRIO:");
 		System.out.printf("Consumo = R$ %.2f%n", bill.feeding());
-		System.out.printf("Couvert = R$ %.2f%n", bill.cover());		
-		System.out.printf("Ingresso = R$ %.2f%n", bill.ticket(bill.gender));
 		
-		System.out.println();
-		System.out.printf("Valor a pagar = R$ %.2f%n", bill.total());
-		sc.close();
+		bill.cover();
+		if(bill.feeding() < 30) {
+			System.out.printf("Couvert = R$ %.2f%n",bill.cover());
+		}else {
+			System.out.println("Isento de Couvert");
+		}
+	System.out.printf("Ingresso = R$ %.2f%n",bill.ticket(bill.gender));
 
+	System.out.println();System.out.printf("Valor a pagar = R$ %.2f%n",bill.total());sc.close();
 	}
-
 }
+
